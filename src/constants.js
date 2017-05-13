@@ -3,7 +3,7 @@
  */
 export const actions = {
   connect: 'Bolt/Connect',
-  wide: 'Bolt/Wide_Action',
+  bolt: 'Bolt/Bolt_Action',
   channel: 'Bolt/Channel_Action',
   joinChannel: 'Bolt/Join_Channel',
   leaveChannel: 'Bolt/Leave_Channel'
