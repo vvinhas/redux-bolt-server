@@ -40,10 +40,10 @@ const connectionCallback = socket => {
       .emit(actions.bolt, action)
   })
 
-  // Broadcast a wide action
+  // Broadcast a bolt action
   socket.on(actions.bolt, action => {
     debug(`⚡️  Broadcasting Bolt action "%s" to connected sockets. Action: %o`, action.type, action)
-    socket.broadcast.emit(actions.wide, action)
+    socket.broadcast.emit(actions.bolt, action)
   })
 }
 
