@@ -1,5 +1,6 @@
 .DS_Store
 
+.vscode
 node_modules
 npm-debug.log
 
@@ -7,6 +8,5 @@ npm-debug.log
 coverage
 *.lcov
 
-dist
 lib
 yarn.lock

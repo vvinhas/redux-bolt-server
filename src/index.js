@@ -1,5 +1,5 @@
-const boltCallback = require('./boltCallback')
+const eventsHandler = require('./eventsHandler')
 
 module.exports = {
-  boltCallback
+  eventsHandler
 }

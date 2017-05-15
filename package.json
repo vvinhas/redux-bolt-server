@@ -1,10 +1,18 @@
 {
   "name": "redux-bolt-server",
-  "version": "1.0.0",
-  "description": "⚡️ A simple callback for SocketIO Server to handle Redux-Bolt actions",
+  "version": "0.0.1",
+  "description": "⚡️ A simple callback for SocketIO Server to handle Redux-Bolt events",
   "main": "lib/index.js",
+  "files": [
+      "lib",
+      "src"
+  ],
   "scripts": {
     "build": "babel src --out-dir lib"
+  },
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/vvinhas/redux-bolt-server.git"
   },
   "keywords": [
     "nodejs",

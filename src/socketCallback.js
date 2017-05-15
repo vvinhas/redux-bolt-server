@@ -1,7 +1,13 @@
-const debug = require('debug')('bolt')
-const constants = require('./constants')
-const getBoltObject = require('./getBoltObject')
+var debug = require('debug')('bolt')
+var constants = require('./constants')
+var getBoltObject = require('./getBoltObject')
 
+/**
+ * A callback to handle socket events
+ * 
+ * @param {Socket} socket
+ * @return {void}
+ */
 const socketCallback = socket => action => {
   const { types, events } = constants
   const boltObject = getBoltObject(action)
@@ -33,17 +39,4 @@ const socketCallback = socket => action => {
   }
 }
 
-/**
- * A callback to handle Redux Bolt actions
- * 
- * @prop socket Socket
- * @type function
- */
-const boltCallback = socket => {
-  const { events } = constants
-  for (let event in events) {
-    socket.on(events[event], socketCallback(socket))
-  }
-}
-
-module.exports = boltCallback
+module.exports = socketCallback
