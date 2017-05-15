@@ -1,6 +1,6 @@
 {
   "name": "redux-bolt-server",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "⚡️ A simple callback for SocketIO Server to handle Redux-Bolt events",
   "main": "lib/index.js",
   "files": [
