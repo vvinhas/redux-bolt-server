@@ -4,7 +4,7 @@ var getBoltObject = require('./getBoltObject')
 
 /**
  * A callback to handle socket events
- * 
+ *
  * @param {Socket} socket
  * @return {void}
  */
@@ -26,9 +26,17 @@ const socketCallback = socket => action => {
       // Channel Message
       case events.channelMessage:
         debug(`⚡️  Broadcasting Bolt action "%s" to channel "%s". Action: %o`, action.type, boltObject.channel, action)
-        socket.broadcast
-          .to(boltObject.channel)
-          .emit(events.message, action)
+        socket.broadcast.to(boltObject.channel).emit(events.message, action)
+        break
+      // Call Actions
+      case events.callAction:
+        debug(`⚡️  Calling actions "%s" to connected sockets.`, action.actions.toString())
+        socket.broadcast.emit(events.callAction, action.actions)
+        break
+      // Broadcast
+      case events.broadcast:
+        debug(`⚡️  Broadcasting "%s" to connected sockets.`, action.broadcast[0])
+        socket.broadcast.emit(events.broadcast, action.broadcast)
         break
       // Message
       case events.message:

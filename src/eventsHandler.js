@@ -3,7 +3,7 @@ var socketCallback = require('./socketCallback')
 
 /**
  * An event handler for Redux Bolt actions
- * 
+ *
  * @param {Socket} socket Socket
  * @return {Socket}
  */

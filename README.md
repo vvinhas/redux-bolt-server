@@ -22,7 +22,7 @@ yarn add redux-bolt-server
 
 ## Usage
 
-After requiring the package, you'll use the `boltCallback` function as a callback for `io.on` connection event.
+After requiring the package, you'll use the `eventsHandler` function as a callback for `io.on` connection event.
 
 ```js
 var bolt = require('redux-bolt-server')

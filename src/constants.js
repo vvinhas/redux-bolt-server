@@ -1,5 +1,6 @@
 /**
- * Constants used by Redux Bolt
+ * Represents the available types of a Bolt Object
+ * @const {object}
  */
 
 export const types = {
@@ -7,10 +8,19 @@ export const types = {
   receive: 'Bolt/Receive'
 }
 
+/**
+ * Represents the available events of a Bolt Object
+ * @const {object}
+ */
 export const events = {
-  connect: 'Bolt/Connect',
+  connected: 'Bolt/Connected',
+  disconnected: 'Bolt/Disconnected',
+  reconnected: 'Bolt/Reconnected',
+  error: 'Bolt/Error',
   message: 'Bolt/Message',
-  channelMessage: 'Bolt/Channel_Message',
   joinChannel: 'Bolt/Join_Channel',
-  leaveChannel: 'Bolt/Leave_Channel'
+  leaveChannel: 'Bolt/Leave_Channel',
+  channelMessage: 'Bolt/Channel_Message',
+  callAction: 'Bolt/Call_Action',
+  broadcast: 'Bolt/Broadcast'
 }

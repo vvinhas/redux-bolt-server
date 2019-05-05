@@ -4,15 +4,15 @@
   "description": "⚡️ A simple callback for SocketIO Server to handle Redux-Bolt events",
   "main": "lib/index.js",
   "files": [
-      "lib",
-      "src"
+    "lib",
+    "src"
   ],
   "scripts": {
     "build": "babel src --out-dir lib"
   },
   "repository": {
-      "type": "git",
-      "url": "https://github.com/vvinhas/redux-bolt-server.git"
+    "type": "git",
+    "url": "https://github.com/vvinhas/redux-bolt-server.git"
   },
   "keywords": [
     "nodejs",
@@ -23,12 +23,11 @@
   "author": "Vinicius Vinhas <vinicius.vinhas@gmail.com> (http://github.com/vvinhas)",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.24.1",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1"
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.4.4"
   },
   "dependencies": {
-    "debug": "^2.6.6"
+    "debug": "^4.1.1"
   }
 }
