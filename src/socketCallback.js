@@ -15,7 +15,11 @@ const socketCallback = socket => action => {
     switch (boltObject.event) {
       // Join Channel
       case events.joinChannel:
-        debug(`️⚡️  Socket %s joined channel "%s"`, socket.id, boltObject.channel)
+        debug(
+          `️⚡️  Socket %s joined channel "%s"`,
+          socket.id,
+          boltObject.channel
+        )
         socket.join(boltObject.channel)
         break
       // Leave Channel
@@ -25,22 +29,38 @@ const socketCallback = socket => action => {
         break
       // Channel Message
       case events.channelMessage:
-        debug(`⚡️  Broadcasting Bolt action "%s" to channel "%s". Action: %o`, action.type, boltObject.channel, action)
+        debug(
+          `⚡️  Broadcasting Bolt action "%s" to channel "%s". Action: %o`,
+          action.type,
+          boltObject.channel,
+          action
+        )
         socket.broadcast.to(boltObject.channel).emit(events.message, action)
         break
       // Call Actions
-      case events.callAction:
-        debug(`⚡️  Calling actions "%s" to connected sockets.`, action.actions.toString())
-        socket.broadcast.emit(events.callAction, action.actions)
+      case events.call:
+        debug(
+          `⚡️  Notifying "%s" to connected sockets. Action: %0`,
+          action.type,
+          action
+        )
+        socket.broadcast.emit(events.call, action)
         break
       // Broadcast
       case events.broadcast:
-        debug(`⚡️  Broadcasting "%s" to connected sockets.`, action.broadcast[0])
+        debug(
+          `⚡️  Broadcasting "%s" to connected sockets.`,
+          action.broadcast[0]
+        )
         socket.broadcast.emit(events.broadcast, action.broadcast)
         break
       // Message
       case events.message:
-        debug(`⚡️  Broadcasting Bolt action "%s" to connected sockets. Action: %o`, action.type, action)
+        debug(
+          `⚡️  Broadcasting Bolt action "%s" to connected sockets. Action: %o`,
+          action.type,
+          action
+        )
         socket.broadcast.emit(events.message, action)
         break
     }
