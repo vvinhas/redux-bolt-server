@@ -54,6 +54,15 @@ const socketCallback = socket => action => {
         )
         socket.broadcast.emit(events.broadcast, action.broadcast)
         break
+      // Trigger
+      case events.trigger:
+        debug(
+          `⚡️  Triggering "%s" to connected sockets. Action: %o`,
+          action.type,
+          action
+        )
+        socket.broadcast.emit(events.trigger, action)
+        break
       // Message
       case events.message:
         debug(
